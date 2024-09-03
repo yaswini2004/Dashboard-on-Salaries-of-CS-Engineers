@@ -1,0 +1,136 @@
+---
+title: "CS Engineers Salary Analysis Dashboard USA (2024)"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(dplyr)
+x<-read.csv(file.choose())
+View(x)
+```
+
+Column {data-width=450}
+-----------------------------------------------------------------------
+
+### Highest paid Job:
+
+```{r}
+# Load the necessary libraries
+library(ggplot2)
+
+# Read in the data
+x <- read.csv("salaries.csv")
+
+# Filter the data to include only the columns we need
+x <- x %>% select(job_title, salary_in_usd)
+
+# Calculate the mean salary for each job title
+x <- x %>% group_by(job_title) %>% summarise(mean_salary = mean(salary_in_usd))
+
+
+# Sort the data by mean salary
+x <- x %>% arrange(desc(mean_salary))
+
+# Create the bar graph
+ggplot(x, aes(x = reorder(job_title, mean_salary), y = mean_salary)) +
+  geom_bar(stat = "identity", width = 0.7, fill = "steelblue") +
+  scale_x_discrete(expand = c(0, 0.1)) +
+  coord_flip() +
+  labs(x = "Job Title", y = "Mean Salary (USD)") +
+  theme_minimal()
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Company Size where most of the jobs are:
+
+```{r}
+# Load the necessary libraries
+library(ggplot2)
+
+# Read in the data
+x <- read.csv("salaries.csv")
+
+# Filter the data to include only the columns we need
+x <- x %>% select(company_size, remote_ratio)
+
+# Calculate the total remote ratio for each company size
+x <- x %>% group_by(company_size) %>% summarise(total_remote_ratio = sum(remote_ratio))
+
+# Create the pie chart
+ggplot(x, aes(x = "", y = total_remote_ratio, fill = company_size)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar("y", start = 0) +
+  labs(x = "", y = "", fill = "Company Size", title = "Remote Company Size",font_size = 16) +
+  theme_void()
+
+```
+
+### State Where most of the company are Located:
+
+```{r}
+# Load the necessary libraries
+library(ggplot2)
+
+# Read in the data
+x <- read.csv("salaries.csv")
+
+# Filter the data to include only the columns we need
+x <- x %>% select(company_location, salary_in_usd)
+
+# Group the data by company location and calculate the maximum salary
+x <- x %>% group_by(company_location) %>% summarise(max_salary = max(salary_in_usd))
+
+# Create the bar chart
+ggplot(x, aes(x = company_location, y = max_salary)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Company Location", y = "Maximum Salary (USD)") +
+theme(axis.text.x = element_text(size = 18),
+        axis.text.y = element_text(size = 20),
+        axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24))
+```
+
+### Average Salary According to Experience:
+```{r}
+# Load the necessary libraries
+library(ggplot2)
+
+# Read in the data
+x <- read.csv("Salaries.csv")
+
+# Filter the data to include only the columns we need
+x <- x %>% select(experience_level, salary_in_usd)
+
+# Calculate the average salary for each experience level
+x <- x %>% group_by(experience_level) %>% summarise(mean_salary = mean(salary_in_usd))
+
+# Create the bar graph
+ggplot(x, aes(x = experience_level, y = mean_salary)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Experience Level", y = "Mean Salary (USD)") +
+  theme(axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24))
+ 
+```
+
+
+
+
+
+
+
+
+
+
+
+
