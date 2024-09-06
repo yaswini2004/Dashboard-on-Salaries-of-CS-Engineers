@@ -38,9 +38,19 @@ The CS Engineers Salary Analysis Dashboard is a data visualization tool that pro
 - **ggplot2**
 - **dplyr**
 
-## Installation
+## Getting Started
 
-To run this dashboard on your local machine, follow these steps:
+To get started with this project, you'll need to set up your local environment and run the dashboard.
+
+### Prerequisites
+
+Ensure that you have the following installed on your machine:
+
+- [R](https://cran.r-project.org/)
+- [RStudio](https://rstudio.com/products/rstudio/download/)
+- The necessary R packages (`flexdashboard`, `ggplot2`, `dplyr`)
+
+### Running the Dashboard
 
 1. **Clone the repository**:
    ```sh
@@ -59,8 +69,12 @@ The dashboard is designed to be interactive, allowing users to explore the data 
 - **Job Seekers:** To identify high-paying job titles and regions with abundant job opportunities.
 - **Companies:** To analyze industry salary trends and compare their offerings with market standards.
 - **Researchers and Analysts:** To study the distribution of tech jobs across different states and company sizes.
+
 ## Contributing
 If you'd like to contribute to this project, please fork the repository and use a feature branch. Pull requests are warmly welcome.
 
 ## License
 This project is open-source and available under the MIT License.
+
+## Acknowledgements
+Special thanks to the R community for their contributions to the packages used in this project and to the data providers who made this analysis possible.
