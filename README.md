@@ -5,6 +5,26 @@
 This project is a data visualization dashboard built using R and the `flexdashboard` package. It provides insights into the salaries of computer science engineers across the USA for the year 2024.
 
 
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Running the Dashboard](#running-the-dashboard)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+
+## Introduction
+
+The CS Engineers Salary Analysis Dashboard is a data visualization tool that provides insights into the salaries of computer science engineers across the USA for the year 2024. The dashboard uses data visualization techniques to highlight the highest-paid job titles, company size distribution, and regional job markets. This project leverages the power of R and flexdashboard to create an interactive and informative experience for users.
+
+
+
 ## Features
 
 - **Highest Paid Job Titles**: A bar graph representing the mean salary for different job titles, allowing users to quickly identify the most lucrative positions.
